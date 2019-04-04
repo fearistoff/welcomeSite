@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>Сайт-визитка</title>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="#323232">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+		<link rel="manifest" href="img/site.webmanifest">
+		<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#323232">
+		<meta name="msapplication-TileColor" content="#323232">
+		<link href="css/all.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=2.0">
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__moblie-menu">
+				<div class="fixed-container">
+					<ul class="header__navigation-list">	
+						<li class="header__navigation-item">Услуги</li>
+						<li class="header__navigation-item">Портфолио</li>
+						<li class="header__navigation-item">Стоимость</li>
+					</ul>
+				</div>
+			</div>
+			<div class="header__main-menu">
+				<div class="fixed-container">
+					<div class="header__main-container">
+						<div class="header__menu-opener"></div>
+						<ul class="header__navigation-list hide-1240">	<!-- не знаю как реализовать по методологии БЭМ одинаковые элементы, но с разными отображениями -->
+							<li class="header__navigation-item">Услуги</li>
+							<li class="header__navigation-item">Портфолио</li>
+							<li class="header__navigation-item">Стоимость</li>
+						</ul>
+						<div class="header__phone">
+							<a class="header__number" href="tel:89991315708">+7 (999) 131-57-08</a>
+							<a class="header__call-button button" href="#">Заказать звонок</a>
+							<a class="header__call-button-small" href="#"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="infopanel">
+			<div class="infopanel__main-area">
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<span class="fancy-cymbol"></span>
+				<div class="fixed-container">
+					<h1 class="infopanel__name">Александр Нилов</h1>
+					<h2 class="infopanel__spec">Frontend-разработчик и&nbsp;веб-верстальщик</h2>
+					<a class="infopanel__button button_blue button" href="#">Узнать больше</a>
+					<img class="infopanel__photo" src="img/dude.png" alt="placeholder-guy">
+					<svg>
+						<linearGradient id="linear-gradient" x1="0" x2="0" y1="0" y2="1">
+						  <stop offset="0%" stop-color="rgb(55,200,255)"/>
+						  <stop offset="100%" stop-color="rgb(200,55,255)"/>
+						</linearGradient>
+						<!-- <path d="M 1280, 35 
+						 C 1479, 35, 1637, 245, 1637, 420
+						 C 1637, 565, 1529, 797, 1144, 797
+						 C 949, 797, 720, 750, 720, 590
+						 C 720, 455, 980, 35, 1280, 35"/> -->
+						 <path d="M 560, 0 
+						 C 759, 0, 917, 210, 917, 385
+						 C 917, 530, 809, 762, 424, 762
+						 C 229, 762, 0, 715, 0, 555
+						 C 0, 420, 260, 0, 560, 0"/>
+					</svg>
+				</div>
+				<!-- <canvas width="1920" height="663"></canvas> -->
+			</div>
+			<div class="infopanel__mobile-area">
+				<div class="fixed-container">
+					<h1 class="infopanel__mobile-name">Александр Нилов</h1>
+					<h2 class="infopanel__mobile-spec">Frontend-разработчик и&nbsp;веб-верстальщик</h2>
+					<a class="infopanel__mobile-button button button_blue" href="#">Узнать больше</a>
+				</div>
+			</div>
+		</div>
+		<div class="flex-list">
+			<div class="fixed-container">
+				<h2 class="flex-list__header">Что я делаю</h2>
+				<div class="flex-list__main">
+					<div class="flex-list__item">
+						<img class="flex-list__item-picture" src="img/cap_1_initial.png" alt="placeholder-guy">
+						<h4 class="flex-list__item-description">Вёртска лендинг-страниц и&nbsp;сайтов любой сложности</h4>
+					</div>
+					<div class="flex-list__item">
+						<img class="flex-list__item-picture" src="img/cap_2_initial.png" alt="placeholder-guy">
+						<h4 class="flex-list__item-description">Адаптивная вёрстка под все браузеры и&nbsp;устройства</h4>
+					</div>
+					<div class="flex-list__item">
+						<img class="flex-list__item-picture" src="img/cap_3_initial.png" alt="placeholder-guy">
+						<h4 class="flex-list__item-description">Frontend-разработка и&nbsp;программирование</h4>
+					</div>
+					<div class="flex-list__item">
+						<img class="flex-list__item-picture" src="img/cap_4_initial.png" alt="placeholder-guy">
+						<h4 class="flex-list__item-description">Исправление и&nbsp;доработка существующей вёрстки</h4>
+					</div>
+				</div>
+				<a class="flex-list__button button button_blue" href="#prices">Узнать стоимость</a>
+			</div>
+		</div>
+		<div class="fixed-container">
+			<div class="carousell">
+				<h2 class="carousell__header">Примеры моих работ</h2>
+				<div class="carousell__main-area">
+					<div class="carousell__arrow arrow_right"></div>
+					<div class="carousell__arrow arrow_left"></div>
+					<ul class="carousell__main-list">
+						<li class="carousell__main-item">
+							<div id="news" class="carousell__thumbnail"></div>
+							<h4 class="carousell__description">Новостной сайт</h4>
+						</li>
+						<li class="carousell__main-item">
+							<div id="semantic-editor" class="carousell__thumbnail"></div>
+							<h4 class="carousell__description">Редактор семантических сетей</h4>
+						</li>
+						<li class="carousell__main-item">
+							<div class="carousell__thumbnail"></div>
+							<h4 class="carousell__description">*Место для работы по JavaScript*</h4>
+						</li>
+					</ul>
+					<div class="carousell__dot-navigator">
+						<div class="carousell__dot dot_selected"></div>
+						<div class="carousell__dot"></div>
+						<div class="carousell__dot"></div>
+					</div>
+					<a class="carousell__button button button_blue" href="#">Заказать проект</a>
+				</div>
+			</div>
+		</div>
+		<div id="prices" class="colorful-item">
+			<div class="fixed-container">
+				<div class="colorful-item__paddings">
+					<h2 class="colorful-item__header">Адаптивная вёрстка под все устройства и&nbsp;браузеры от 1000 рублей всего за&nbsp;4&nbsp;часа.*</h2>
+					<p class="colorful-item__text">* Сроки и&nbsp;стоимость могут отличаться от&nbsp;заявленных и&nbsp;рассчитываются индивидуально, в&nbsp;зависимости от&nbsp;сложности задач.</p>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="fixed-container">
+				<ul class="footer__navigation-list">
+					<li class="footer__navigation-item">Услуги</li>
+					<li class="footer__navigation-item">Портфолио</li>
+					<li class="footer__navigation-item">Стоимость</li>
+				</ul>
+				<div class="footer__contacts-area">
+					<a class="footer__contacts-item number" href="tel:89991315708"><i class="fas fa-phone"></i> +7 (999) 131-57-08</a>
+					<a class="footer__contacts-item mail" href="mailto:fearistoff713@gmail.com"><i class="fas fa-envelope"></i> fearistoff713@gmail.com</a>
+				</div>
+				<div class="footer__button-area">
+					<a href="#" class="footer__button button_purple button">Заказать звонок</a>
+					<br>
+					<div class="footer__social-media-area">
+						<a href="https://vk.com/d0nty0udar3" class="footer__social-media-item vkontakte"></a>
+						<a href="https://github.com/fearistoff" class="footer__social-media-item github"></a>
+						<a href="https://twitter.com/Fear1st0ff" class="footer__social-media-item twitter"></a>
+						<a href="https://www.instagram.com/fearistoff" class="footer__social-media-item instagram"></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer__credits">
+				&copy; Александр Нилов, 2019
+			</div>
+		</footer>
+		<script src="scripts/script.js"></script>
+	</body>
+</html>
