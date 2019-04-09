@@ -3,19 +3,22 @@
 	<head>
 		<title>Сайт-визитка</title>
 		<meta charset="UTF-8">
-		<meta name="theme-color" content="#323232">
+		<meta name="theme-color" content="#050b25">
 		<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 		<link rel="manifest" href="img/site.webmanifest">
-		<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#323232">
-		<meta name="msapplication-TileColor" content="#323232">
+		<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#050b25">
+		<meta name="msapplication-TileColor" content="#050b25">
 		<link href="css/all.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/font.css">
 		<link rel="stylesheet" href="css/styles.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=2.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	</head>
 	<body>
+		<div class="dark-background"></div>
+		<div class="submit-window"></div>
+			<!--  -->
 		<header class="header">
 			<div class="header__moblie-menu">
 				<div class="fixed-container">
@@ -30,15 +33,15 @@
 				<div class="fixed-container">
 					<div class="header__main-container">
 						<div class="header__menu-opener"></div>
-						<ul class="header__navigation-list hide-1240">	<!-- не знаю как реализовать по методологии БЭМ одинаковые элементы, но с разными отображениями -->
+						<ul class="header__navigation-list hide-1240">	<!-- не знаю как реализовать по методологии БЭМ чтобы один элемент отображался а другой такой же скрывался -->
 							<li class="header__navigation-item">Услуги</li>
 							<li class="header__navigation-item">Портфолио</li>
 							<li class="header__navigation-item">Стоимость</li>
 						</ul>
 						<div class="header__phone">
 							<a class="header__number" href="tel:89991315708">+7 (999) 131-57-08</a>
-							<a class="header__call-button button" href="#">Заказать звонок</a>
-							<a class="header__call-button-small" href="#"></a>
+							<div class="header__call-button button">Заказать звонок</div>
+							<div class="header__call-button-small"></div>
 						</div>
 					</div>
 				</div>
@@ -59,18 +62,13 @@
 				<div class="fixed-container">
 					<h1 class="infopanel__name">Александр Нилов</h1>
 					<h2 class="infopanel__spec">Frontend-разработчик и&nbsp;веб-верстальщик</h2>
-					<a class="infopanel__button button_blue button" href="#">Узнать больше</a>
+					<div class="infopanel__button button_blue button">Узнать больше</div>
 					<img class="infopanel__photo" src="img/dude.png" alt="placeholder-guy">
 					<svg>
 						<linearGradient id="linear-gradient" x1="0" x2="0" y1="0" y2="1">
 						  <stop offset="0%" stop-color="rgb(55,200,255)"/>
 						  <stop offset="100%" stop-color="rgb(200,55,255)"/>
 						</linearGradient>
-						<!-- <path d="M 1280, 35 
-						 C 1479, 35, 1637, 245, 1637, 420
-						 C 1637, 565, 1529, 797, 1144, 797
-						 C 949, 797, 720, 750, 720, 590
-						 C 720, 455, 980, 35, 1280, 35"/> -->
 						 <path d="M 560, 0 
 						 C 759, 0, 917, 210, 917, 385
 						 C 917, 530, 809, 762, 424, 762
@@ -78,13 +76,47 @@
 						 C 0, 420, 260, 0, 560, 0"/>
 					</svg>
 				</div>
-				<!-- <canvas width="1920" height="663"></canvas> -->
+			</div>
+			<div class="from-left">
+				<h2>Обо мне</h2>
+			  <h3>Личная информация</h3>
+			  <p>Город проживания:	Уфа</p>
+			  <p>Образование:	Высшее</p>
+			  <p>Дата рождения:	15 сентября 1993 г.</p>
+			  <p>Семейное положение:	Не женат, детей нет</p>
+			  <p>Гражданство: Россия</p>
+			  <h3>Личная информация</h3>
+				<div class="flex-list">
+					<div class="flex-list__main">
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/HTML5.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/CSS3.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/JS.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/jQuery.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/Boostrap.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/Git.png" alt="">
+						</div>
+						<div class="flex-list__item">
+							<img class="flex-list__item-picture" src="img/Gulp.png" alt="">
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="infopanel__mobile-area">
 				<div class="fixed-container">
 					<h1 class="infopanel__mobile-name">Александр Нилов</h1>
 					<h2 class="infopanel__mobile-spec">Frontend-разработчик и&nbsp;веб-верстальщик</h2>
-					<a class="infopanel__mobile-button button button_blue" href="#">Узнать больше</a>
+					<div class="infopanel__mobile-button button button_blue">Узнать больше</div>
 				</div>
 			</div>
 		</div>
@@ -109,7 +141,7 @@
 						<h4 class="flex-list__item-description">Исправление и&nbsp;доработка существующей вёрстки</h4>
 					</div>
 				</div>
-				<a class="flex-list__button button button_blue" href="#prices">Узнать стоимость</a>
+				<div class="flex-list__button button button_blue">Узнать стоимость</div>
 			</div>
 		</div>
 		<div class="fixed-container">
@@ -137,7 +169,7 @@
 						<div class="carousell__dot"></div>
 						<div class="carousell__dot"></div>
 					</div>
-					<a class="carousell__button button button_blue" href="#">Заказать проект</a>
+					<div class="carousell__button button button_blue">Заказать проект</div>
 				</div>
 			</div>
 		</div>
@@ -161,7 +193,7 @@
 					<a class="footer__contacts-item mail" href="mailto:fearistoff713@gmail.com"><i class="fas fa-envelope"></i> fearistoff713@gmail.com</a>
 				</div>
 				<div class="footer__button-area">
-					<a href="#" class="footer__button button_purple button">Заказать звонок</a>
+					<div class="footer__button button_purple button">Заказать звонок</div>
 					<br>
 					<div class="footer__social-media-area">
 						<a href="https://vk.com/d0nty0udar3" class="footer__social-media-item vkontakte"></a>
