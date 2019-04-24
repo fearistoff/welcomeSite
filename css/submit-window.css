@@ -1,0 +1,103 @@
+.submit-window {
+	/*width: 400px;*/
+	opacity: 0;
+	border-width: 1px;
+	border-style: solid;
+	transform: scale(0.8);
+	display: none;
+  flex-flow: column;
+  align-items: center;
+	border-radius: 5px;
+	position: fixed;
+	z-index: 13;
+	transition: transform 0.5s, opacity 0.5s;
+	background: rgb(5,11,37);
+  border-color: rgb(200,55,255);
+  padding: 20px;
+}
+
+.submit-window__close-button {
+	transition: background 0.3s;
+	width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-size: 60% auto;
+  background-image: url(../img/menu_close.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(5,11,37);
+  border-radius: 50%;
+  border: 1px solid rgb(200,55,255);
+  cursor: pointer;
+}
+
+.submit-window__close-button:hover {
+	background-color: rgb(8,16,55);
+}
+
+.submit-window__header {
+	margin: 0 auto 15px;
+}
+
+.submit-window__label {
+	margin: 15px auto 5px;
+}
+
+.input_s {
+	height: 30px;
+}
+
+.input_m {
+	height: 120px;
+}
+
+.submit-window__input {
+  font-size: 20px;
+  border-radius: 15px;
+  border: none;
+  padding: 0 10px;
+}
+
+.submit-window__input:focus {
+  outline: none;
+}
+
+.submit-window__submit-button {
+	margin: 30px auto 0;
+  width: 200px;
+  height: 40px;
+  border: solid 1px;
+}
+
+.dark-background {
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  z-index: 12;
+}
+
+@media (max-width: 1240px) {
+  .submit-window {
+    border-top-right-radius: 16px;
+  }
+  
+  .submit-window__close-button {
+    top: -1px;
+    right: -1px;
+  }
+}
+
+@media (max-width: 550px) {
+  .submit-window {
+    border-top-right-radius: 16px;
+    overflow: scroll;
+    width: calc(100% - 42px);
+  }
+}

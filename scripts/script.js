@@ -14,9 +14,13 @@ let tagsLib = ["&lt;div&gt;", "&lt;\/&gt;", "#",
 							 '<i class="far fa-keyboard"></i>',
 							 '<i class="fas fa-bug"></i>',
 							 '<i class="far fa-folder"></i>',
-							 '<i class="far fa-file-alt"></i>'];
+							 '<i class="far fa-file-alt"></i>',
+							 '<i class="fab fa-html5"></i>',
+							 '<i class="fab fa-js"></i>',
+							 '<i class="fab fa-font-awesome-flag"></i>'];
 let list = document.querySelectorAll(".fancy-cymbol");
 let starts = {};
+let currentCarousellItem = 0;
 let windowIdentificator;
 let headerOrderCallButton = document.querySelector(".header__call-button");
 let headerOrderCallButtonMobile = document.querySelector(".header__call-button-small");
@@ -27,6 +31,13 @@ let makeOrder = document.querySelector(".carousell__button");
 let pricingInfo = document.querySelector(".flex-list__button");
 let aboutMe = document.querySelector(".infopanel__button");
 let aboutMeMobile = document.querySelector(".infopanel__mobile-button");
+let aboutMeBack = document.querySelector(".from-left__button");
+let carousellLeft = document.querySelector(".arrow_left");
+let carousellRight = document.querySelector(".arrow_right");
+let carousell = document.querySelector(".carousell__main-list");
+let itemWidth = document.querySelector('.carousell__main-item').clientWidth;
+
+
 
 function getRandomFromRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -130,8 +141,12 @@ function appearEditWindow() {		//функция появления окна со
 }
 
 function appearInfoWindow() {		//функция появления окна создания/редактирования элементов
-	document.querySelector(".from-left").style.left = 0;
+	document.querySelector(".move").style.marginLeft = "-100%";
 }
+
+function hideInfoWindow() {
+	document.querySelector(".move").style.marginLeft = "";
+};
 
 function prepareWindow(typeOfWindow) {		//функция подготовки окна создания/редактирования
 	let form;
@@ -185,33 +200,6 @@ function prepareWindow(typeOfWindow) {		//функция подготовки о
       }
     return false;
   });
-	// document.querySelector(".submit-window__submit-button").addEventListener("click", function(e) {
-	// 	e.preventDefault();
-	// 	let formData;
-	// 	if (typeOfWindow == 'make-order') {
-	// 		formData = {
-	// 	    usrtel: document.querySelector('input[name="usrtel"]').value,
-	// 	    usrname: document.querySelector('input[name="usrname"]').value,
-	// 	    commentary: document.querySelector('input[name="commentary"]').value
-	// 	  };
-	// 	} else {
-	// 		formData = {
-	// 	    usrtel: document.querySelector('input[name="usrtel"]').value,
-	// 	    usrname: document.querySelector('input[name="usrname"]').value
-	// 	  };
-	// 	}
-
-	//   let request = new XMLHttpRequest();
-	//   request.addEventListener('load', function() {
-	//     // В этой части кода можно обрабатывать ответ от сервера
-	//     console.log(request.response);
-	//     alert('Ваша заявка успешно отправлена!');
-	//     //form.innerHTML = '<h2>Спасибо за заявку!</h2>';
-	//   });
-	//   request.open('POST', 'send.php', true);
-	//   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-	//   request.send('name=' + encodeURIComponent(formData.usrname) + '&email=' + encodeURIComponent('fearistoff713@gmail.com'));
-	// });
 }
 
 headerOrderCallButton.addEventListener("click", function () {
@@ -242,6 +230,81 @@ aboutMeMobile.addEventListener("click", function () {
 	appearInfoWindow();
 });
 
+aboutMeBack.addEventListener("click", function () {
+	hideInfoWindow();
+});
+
 pricingInfo.addEventListener("click", function () {
 	document.querySelector("#prices").scrollIntoView({block: "center", behavior: "smooth"});
 });
+
+carousellLeft.addEventListener("click", function () {
+	scrollCarousell(-1);
+})
+
+carousellRight.addEventListener("click", function () {
+	scrollCarousell(1);
+})
+
+// .dot_selected {
+// 	background-color: rgb(200, 55, 255);
+// }
+
+carousell.addEventListener("scroll", function() {
+	paintDot();
+})
+
+function paintDot(argument) {
+	setTimeout(function() {
+		let indexPosition = Math.round(carousell.scrollLeft/document.querySelector('.carousell__main-item').clientWidth);
+		document.querySelectorAll('.carousell__dot').forEach(function(item, index) {
+			if (index != indexPosition) {
+				item.style.backgroundColor = '';
+			} else {
+				item.style.backgroundColor = 'rgb(200, 55, 255)';
+			}
+		})
+	},10)
+}
+
+paintDot();
+
+dotsSelecting();
+
+function dotsSelecting() {
+	let carousellNavigator = document.querySelector('.carousell__dot-navigator');
+	let dotsCount = document.querySelectorAll('.carousell__main-item').length;
+	carousellNavigator.innerHTML = '';
+	for (var i = 0; i < dotsCount; i++) {
+		carousellNavigator.innerHTML += '<div class="carousell__dot"></div>';
+	}
+	let dots = document.querySelectorAll('.carousell__dot');
+	dots.forEach(function(item, index) {
+		item.addEventListener("click", function() {
+			let pathAndDirection = itemWidth*index - carousell.scrollLeft;
+			let moveCounter = 0;
+			let delta = 0;
+			let timerId = setInterval(function() {
+				delta = Math.abs(carousell.scrollLeft);
+				carousell.scrollLeft += 0.010*pathAndDirection;
+				delta -= Math.abs(carousell.scrollLeft);
+				if (carousell.scrollLeft >= itemWidth*index - 5 && carousell.scrollLeft <= itemWidth*index + 5 || delta == 0) {
+					clearInterval(timerId);
+				}
+			}, 1);
+		})
+	})
+}
+
+//x*a = y
+
+function scrollCarousell(direct) {
+	let moveCounter = 0;
+	//document.querySelectorAll(".carousell__main-item")[currentCarousellItem--]scrollIntoView({block: "center", behavior: "smooth"});
+	let timerId = setInterval(function() {
+		carousell.scrollLeft += 7*direct;
+		if (++moveCounter >= itemWidth/7) {
+			clearInterval(timerId);
+		}
+	}, 1);
+}

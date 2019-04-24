@@ -1,0 +1,126 @@
+.flex-list {
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 87px;
+	padding-top: 87px;
+	margin: 0 auto;
+  background-color: rgb(3, 4, 19);
+}
+
+.flex-list__header {
+  margin: 0 0 87px 0;
+  text-align: center;
+  font-size: 54px;
+}
+
+.flex-list__button {
+  margin: 70px auto 0;
+  width: 270px;
+  height: 60px;
+}
+
+.flex-list__main {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.flex-list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 260px;
+}
+
+.flex-list__item-picture {
+  height: 74px;
+	width: auto;
+}
+
+.flex-list__item-description {
+	text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 20px 0;
+  line-height: 30px;
+  color: rgb(200, 200, 200);
+}
+
+@media (max-width: 1240px) {
+  .flex-list__main {
+    padding-left: 85px;
+    padding-right: 85px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    max-height: 500px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .flex-list__item:nth-child(2n - 1) {
+    margin-bottom: 55px;
+  }
+
+  .flex-list {
+    padding-bottom: 105px;
+  }
+
+  .flex-list__button {
+    margin: 72px auto 0;
+    width: 320px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 760px) {
+  .flex-list__main {
+    max-height: initial;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .flex-list {
+    padding-top: 18px;
+    padding-bottom: 50px;
+  }
+
+  .flex-list__header {
+    font-size: 30px;
+    margin: 0 0 43px 0;
+  }
+
+  .flex-list__button {
+    margin: 0 auto 0;
+  }
+
+  .flex-list__item-picture {
+    height: 57px;
+  }
+
+  .flex-list__item-description {
+    font-size: 17px;
+    margin: 12.5px 0;
+    line-height: 25px;
+  }
+
+  .flex-list__item {
+    margin-bottom: 38px !important;   /*костыль против nth-child*/
+  }
+}
