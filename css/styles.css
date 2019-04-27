@@ -24,15 +24,19 @@ body {
 }
 
 .from-left {
-	padding: 20px;
+    padding: 0;
   overflow-y: hidden;
   background-color: rgb(5,11,37);
+}
+
+.from-left > * {
+    margin-left: 20px;
 }
 
 .from-left__button {
 	width: 270px; 
   height: 60px;
-	margin-top: 45px;
+	margin: 45px auto 20px;
 }
 
 .img-list {

@@ -36,6 +36,9 @@ let carousellLeft = document.querySelector(".arrow_left");
 let carousellRight = document.querySelector(".arrow_right");
 let carousell = document.querySelector(".carousell__main-list");
 let itemWidth = document.querySelector('.carousell__main-item').clientWidth;
+let selectedDot = 0;
+let secMove = false;
+//let scrollOld = 0, scrollNew = 0, deltaOld = 0, deltaNew = 0;
 
 
 
@@ -146,7 +149,7 @@ function appearInfoWindow() {		//функция появления окна со
 
 function hideInfoWindow() {
 	document.querySelector(".move").style.marginLeft = "";
-};
+}
 
 function prepareWindow(typeOfWindow) {		//функция подготовки окна создания/редактирования
 	let form;
@@ -240,11 +243,11 @@ pricingInfo.addEventListener("click", function () {
 
 carousellLeft.addEventListener("click", function () {
 	scrollCarousell(-1);
-})
+});
 
 carousellRight.addEventListener("click", function () {
 	scrollCarousell(1);
-})
+});
 
 // .dot_selected {
 // 	background-color: rgb(200, 55, 255);
@@ -252,7 +255,42 @@ carousellRight.addEventListener("click", function () {
 
 carousell.addEventListener("scroll", function() {
 	paintDot();
-})
+	if (window.innerWidth <= 1024) {
+		let scrollOld = carousell.scrollLeft;
+		let scrollNew;
+		setTimeout(function(){
+			console.log("scrollOld",scrollOld);
+			scrollNew = carousell.scrollLeft;
+			console.log("scrollNew",scrollNew);
+			if (scrollOld === scrollNew) {
+				goToSelectedItem();
+			}
+		},100);
+	}
+});
+
+function goToSelectedItem() {
+	if (secMove) {
+		return;
+	} else {
+		secMove = true;
+	}
+	let pathAndDirection = itemWidth*selectedDot - carousell.scrollLeft;
+	let delta = 0;
+	let timerId = setInterval(function() {
+		delta = Math.abs(carousell.scrollLeft);
+		carousell.scrollLeft += 0.02*pathAndDirection;
+		delta -= Math.abs(carousell.scrollLeft);
+		if (carousell.scrollLeft >= itemWidth*selectedDot - 5 && carousell.scrollLeft <= itemWidth*selectedDot + 5 || delta === 0) {
+			clearInterval(timerId);
+			carousell.scrollLeft = itemWidth*selectedDot;
+			setTimeout(function(){
+				secMove = false;
+			},500);
+		}
+	}, 1);
+}
+
 
 function paintDot(argument) {
 	setTimeout(function() {
@@ -262,9 +300,10 @@ function paintDot(argument) {
 				item.style.backgroundColor = '';
 			} else {
 				item.style.backgroundColor = 'rgb(200, 55, 255)';
+				selectedDot = index;
 			}
-		})
-	},10)
+		});
+	},10);
 }
 
 paintDot();
@@ -282,21 +321,18 @@ function dotsSelecting() {
 	dots.forEach(function(item, index) {
 		item.addEventListener("click", function() {
 			let pathAndDirection = itemWidth*index - carousell.scrollLeft;
-			let moveCounter = 0;
 			let delta = 0;
 			let timerId = setInterval(function() {
 				delta = Math.abs(carousell.scrollLeft);
 				carousell.scrollLeft += 0.010*pathAndDirection;
 				delta -= Math.abs(carousell.scrollLeft);
-				if (carousell.scrollLeft >= itemWidth*index - 5 && carousell.scrollLeft <= itemWidth*index + 5 || delta == 0) {
+				if (carousell.scrollLeft >= itemWidth*index - 5 && carousell.scrollLeft <= itemWidth*index + 5 || delta === 0) {
 					clearInterval(timerId);
 				}
 			}, 1);
-		})
-	})
+		});
+	});
 }
-
-//x*a = y
 
 function scrollCarousell(direct) {
 	let moveCounter = 0;
@@ -308,3 +344,21 @@ function scrollCarousell(direct) {
 		}
 	}, 1);
 }
+
+document.querySelectorAll(".link-services").forEach(function(item){
+	item.addEventListener("click", function(){
+		document.querySelector("#services").scrollIntoView({block: "center", behavior: "smooth"});
+	});
+});
+
+document.querySelectorAll(".link-portfolio").forEach(function(item){
+	item.addEventListener("click", function(){
+		document.querySelector("#portfolio").scrollIntoView({block: "center", behavior: "smooth"});
+	});
+});
+
+document.querySelectorAll(".link-prices").forEach(function(item){
+	item.addEventListener("click", function(){
+		document.querySelector("#prices").scrollIntoView({block: "center", behavior: "smooth"});
+	});
+});

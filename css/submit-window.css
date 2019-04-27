@@ -58,6 +58,7 @@
   border-radius: 15px;
   border: none;
   padding: 0 10px;
+  width: calc(100% - 20px);
 }
 
 .submit-window__input:focus {

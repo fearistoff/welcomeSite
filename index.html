@@ -23,9 +23,9 @@
 			<div class="header__moblie-menu">
 				<div class="fixed-container">
 					<ul class="header__navigation-list">	
-						<li class="header__navigation-item">Услуги</li>
-						<li class="header__navigation-item">Портфолио</li>
-						<li class="header__navigation-item">Стоимость</li>
+						<li class="header__navigation-item link-services">Услуги</li>
+						<li class="header__navigation-item link-portfolio">Портфолио</li>
+						<li class="header__navigation-item link-prices">Стоимость</li>
 					</ul>
 				</div>
 			</div>
@@ -34,9 +34,9 @@
 					<div class="header__main-container">
 						<div class="header__menu-opener"></div>
 						<ul class="header__navigation-list hide-1240">	<!-- не знаю как реализовать по методологии БЭМ чтобы один элемент отображался а другой такой же скрывался -->
-							<li class="header__navigation-item">Услуги</li>
-							<li class="header__navigation-item">Портфолио</li>
-							<li class="header__navigation-item">Стоимость</li>
+							<li class="header__navigation-item link-services">Услуги</li>
+							<li class="header__navigation-item link-portfolio">Портфолио</li>
+							<li class="header__navigation-item link-prices">Стоимость</li>
 						</ul>
 						<div class="header__phone">
 							<a class="header__number" href="tel:89991315708">+7 (999) 131-57-08</a>
@@ -86,7 +86,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="from-left one-third fixed-container">
+			<div class="from-left one-third">
 				<h2>Обо мне</h2>
 			  <h3>Личная информация</h3>
 			  <p>Город проживания:	Уфа</p>
@@ -107,7 +107,7 @@
 				<div class="from-left__button button_blue button"><i class="fas fa-arrow-left"></i><pre> </pre>Вернуться назад</div>
 			</div>
 		</div>
-		<div class="flex-list">
+		<div id="services" class="flex-list">
 			<div class="fixed-container">
 				<h2 class="flex-list__header">Что я делаю</h2>
 				<div class="flex-list__main">
@@ -132,7 +132,7 @@
 			</div>
 		</div>
 		<div class="fixed-container">
-			<div class="carousell">
+			<div id="portfolio" class="carousell">
 				<h2 class="carousell__header">Примеры моих работ</h2>
 				<div class="carousell__arrow arrow_right"></div>
 				<div class="carousell__arrow arrow_left"></div>
@@ -183,9 +183,9 @@
 		<footer class="footer">
 			<div class="fixed-container">
 				<ul class="footer__navigation-list">
-					<li class="footer__navigation-item">Услуги</li>
-					<li class="footer__navigation-item">Портфолио</li>
-					<li class="footer__navigation-item">Стоимость</li>
+					<li class="footer__navigation-item link-services">Услуги</li>
+					<li class="footer__navigation-item link-portfolio">Портфолио</li>
+					<li class="footer__navigation-item link-prices">Стоимость</li>
 				</ul>
 				<div class="footer__contacts-area">
 					<a class="footer__contacts-item number" href="tel:89991315708"><i class="fas fa-phone"></i> +7 (999) 131-57-08</a>
